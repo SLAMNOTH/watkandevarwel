@@ -1,1 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cutout Text Animation</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+        }
+        section {
+            width: 100%;
+            height: 100%;
+            scroll-snap-align: start;
+        }
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: black;
+        }
+        video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    font-size: 5vw;
+    font-weight: bold;
+    color: white; /* White text */
+    text-transform: uppercase;
+    mix-blend-mode: difference;
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 1.8); /* Shadow effect */
+}
+
+.animated-text span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: reveal 0.5s ease forwards;
+}
+
+.animated-text span:nth-child(1) { animation-delay: 0.4s; }
+.animated-text span:nth-child(2) { animation-delay: 0.8s; }
+.animated-text span:nth-child(3) { animation-delay: 1.2s; }
+.animated-text span:nth-child(4) { animation-delay: 1.5s; }
+.animated-text span:nth-child(5) { animation-delay: 1.9s; }
+.animated-text span:nth-child(6) { animation-delay: 2.1s; }
+.animated-text span:nth-child(7) { animation-delay: 2.5s; }
+.animated-text span:nth-child(8) { animation-delay: 3s; }
+
+
+        @keyframes reveal {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .scroll-down {
+            margin-top: 2rem;
+            font-size: 1.5rem;
+            font-weight: normal;
+            color: white;
+            opacity: 0;
+            animation: fadeIn 2s ease forwards 3.5s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .arrow {
+    margin-top: 0.5rem;
+    width: 20px;
+    height: 20px;
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+    transform: rotate(45deg); /* Correct rotation for downward direction */
+    animation: bounce 1.1s infinite;
+}
+
+
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0) rotate(45deg);
+            }
+            50% {
+                transform: translateY(10px) rotate(45deg);
+            }
+        }
+        .section {
+            background: black;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            
+        }
+
+        .video-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            padding: 2rem;
+            gap: 2rem; /* Space between the video and text */
+            background-color: black;
+            color: white;
+        }
+        .video-section iframe {
+            border: none;
+            width: 560px;
+            height: 315px;
+        }
+        .video-text {
+            max-width: 600px;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+        .video-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <section class="container">
+        <video autoplay muted loop>
+            <source src="video2.mp4" type="video/mp4">
+            <img src="fallback-image.jpg" alt="Your browser does not support video playback">
+        </video>
+        
+        <div class="overlay">
+            <div class="animated-text">
+                <span>WAT</span>
+                <span>KAN</span>
+                <span>DE</span>
+                <span>VAR</span>
+                <span>WEL</span>
+                <span>.</span>
+                <span>NL</span>
+            </div>
+            <div class="scroll-down">
+                Bekijk de beste VAR momenten
+                <div class="arrow"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="video-section">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/fAzqeF4C6q0?si=ybLKI7X_vnFeTiTW&amp;start=136" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <div class="video-text">
+            <div class="video-title">Winnende goal PEC onterecht afgekeurd vanwege buitenspel bij corner??</div>
+            <p>Een mogelijk winnende treffer van PEC Zwolle is vrijdagavond in de slotfase onterecht afgekeurd, zo bevestigt de KNVB. Daardoor liep de ploeg van Johnny Jansen vrijdagavond bij RKC Waalwijk een waarschijnlijke zege mis en bleef het bij 1-1 in Waalwijk.
+                In de slotminuut van de officiële speeltijd schoot Nick Fichtinger een afgeslagen bal in het doel, maar de VAR keurde de treffer af wegens buitenspel bij een kort genomen corner. Dat had niet gemogen, bevestigde de voetbalbond later.
+                "Ik ben echt woest", zegt PEC-trainer Johnny Jansen. "Dit lijkt nergens op. Dit is schandalig. Die gasten hebben toch een boek met regels naast hun liggen? Daar kunnen ze toch in kijken en zien dat je bij een cornerbal niet buitenspel kan staan. Deze gasten worden daarvoor betaald toch? Dit is echt schandalig"
+                </p>
+        </div>
+    </section>
+</body>
+</html>
 
