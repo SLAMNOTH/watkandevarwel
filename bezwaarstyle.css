@@ -419,6 +419,15 @@ body {
 	padding-left: 0px;
 }
 
+.gjs-link-box {
+	color: inherit;
+	display: inline-block;
+	vertical-align: top;
+	padding: 10px;
+	max-width: 100%;
+	text-decoration: none;
+}
+
 @media (max-width:992px) {
 	.gjs-grid-row {
 		flex-direction: column;
